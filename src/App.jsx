@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import Header from './components/Header/Header'
 import { ThemeProvider } from './components/ThemeContext'
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
   return (
     <>
       <ThemeProvider>
+        <Header />
       </ThemeProvider>
     </>
   )
