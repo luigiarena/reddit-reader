@@ -39,13 +39,14 @@
     border-radius: 10px;
     box-shadow: 1px 1px 4px #616161;
     min-height: 250px;
-    transition: box-shadow 0.3s, background 0.3s;
+    transition: box-shadow 0.3s, background 0.3s, box-shadow 0.3s;
     padding: 20px 10px;
 }
 
 .card.dark {
     color: rgb(169, 169, 169);
     background: black;
+    box-shadow: 1px 1px 4px #363636;
 }
 
 .card.dark h2 {
