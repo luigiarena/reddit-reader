@@ -1,2 +1,3 @@
-# reddit-reader
-A simple readdit news reader created with React and Redux.
+# reactive-news
+
+A simple news reader created with React and Redux.
