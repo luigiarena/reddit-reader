@@ -12,7 +12,10 @@ function App() {
     <>
       <ThemeProvider>
         <Header />
+        <main className="main-container">
           <Sidebar />
+          <CardsContainer />
+        </main>
       </ThemeProvider>
     </>
   )
