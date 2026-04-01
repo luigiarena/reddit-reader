@@ -10,11 +10,13 @@ header.header-container {
     position: sticky;
     top: 0;
     z-index: 10;
+    box-shadow: 0 2px 8px #848181bf
 }
 
 header.header-container.dark {
     background: #000;
     color: #fff;
+    box-shadow: 0 2px 8px #363839d1
 }
 
 header .logo {
