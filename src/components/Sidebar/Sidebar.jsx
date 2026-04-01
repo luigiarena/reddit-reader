@@ -6,6 +6,7 @@ function Sidebar() {
     const { darkMode } = useContext(ThemeContext);
 
     const categories = [
+        'all',
         'business',
         'entertainment',
         'general',
