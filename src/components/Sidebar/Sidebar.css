@@ -1,0 +1,54 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    flex-grow: 1;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    transition: background 0.3s;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 4px #616161;
+    margin: 20px;
+    height: max-content;
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .category {
+        font-size: 14px;
+    }
+
+    .category:hover {
+        color: black;
+        text-decoration: underline;
+        cursor: pointer;
+        transition: color 0.3s;
+        font-weight: bold;
+    }
+
+    &.dark .category:hover {
+        color: white;
+    }
+
+    @media (max-width: 1024px) {
+        gap: 18px;
+        margin: 0 20px;
+    }
+
+    @media (min-width: 1024px) {
+        margin-left: -20px;
+        max-width: 200px;
+    }
+}
+
+.sidebar.dark {
+    color: rgb(169, 169, 169);
+    background: black;
+    box-shadow: 1px 1px 4px #363636;
+
+    h2 {
+        color: white;
+    }
+}
