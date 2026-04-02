@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 
 import CardsContainer from './components/Card/Card'
@@ -9,15 +10,18 @@ import { ThemeProvider } from './components/ThemeContext'
 function App() {
 
   return (
-    <>
+    <Router>
       <ThemeProvider>
         <Header />
         <main className="main-container">
           <Sidebar />
-          <CardsContainer />
+          <Routes>
+            <Route path="/" element={<CardsContainer />} />
+            <Route path="/category/:categoryName" element={<CardsContainer />} />
+          </Routes>
         </main>
       </ThemeProvider>
-    </>
+    </Router>
   )
 }
 
