@@ -88,6 +88,10 @@
     width: 100%;
     object-fit: cover;
     transition: transform 0.3s;
+    background: url(../../assets/image-not-found.jpg) no-repeat scroll 0 0;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
 }
 
 .card:hover .card-body img {
