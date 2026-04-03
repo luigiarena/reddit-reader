@@ -2,6 +2,10 @@ import "./Card.css";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../ThemeContext";
 import newsApi from "../../features/api/newsApi";
+import { useDispatch, useSelector } from "react-redux";
+import { setSelectedCard } from "../../features/slices/cardsSlice";
+
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function Card({ cardInfo }) {
     const { darkMode } = useContext(ThemeContext);
@@ -10,17 +14,39 @@ function Card({ cardInfo }) {
     const formattedDate = new Date(publishedAt).toLocaleDateString();
 
     return (
-        <div className={(darkMode ? "dark" : "") + " card"}>
-            <div className="card-header">
-                <h2>{title}</h2>
-            </div>
-            <div className="card-body">
-                <div className="card-img"><img src={urlToImage} alt="" /></div>
-                <p>{description}</p>
-            </div>   
-            <div className="card-footer">
-                <span>Source: {sourceName}</span>
-                <span>Date: {formattedDate}</span>
+
+function CardDetails() {
+    const { darkMode } = useContext(ThemeContext);
+    const cardInfo = useSelector((state) => state.cards.selectedCard);
+    const navigate = useNavigate();
+
+    console.log(`Card selezionata: ${JSON.stringify(cardInfo)}`);
+
+    function handleBackButton(e) {
+        e.preventDefault();
+        navigate(-1);
+    }
+
+    return (
+        <div className="cards-container">
+            <div className={"card card-details" +(darkMode ? " dark" : "")}>
+                <div className="card-header">
+                    <div className="flex justify-between items-center">
+                        <button className="card-button" onClick={handleBackButton}>Back</button>
+                        <button className="card-button">
+                            <a href={cardInfo.url} target="_blank" rel="noreferrer">
+                                Source Link
+                        </a></button>
+                    </div>
+                    <hr className="header-line"></hr>
+                    <h2>{cardInfo.title}</h2>
+                </div>
+                <div className="card-body">
+                    <div className="card-img">
+                        <img src={cardInfo.urlToImage} alt="" />
+                    </div>
+                    <p>{cardInfo.content ? cardInfo.content : cardInfo.description}</p>
+                </div>   
             </div>
         </div>
     )
@@ -55,4 +81,4 @@ function CardsContainer() {
     )
 }
 
-export default CardsContainer;
+export { Card, CardDetails, CardsContainer};
