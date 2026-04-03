@@ -86,18 +86,21 @@ function CardsContainer() {
             setNewsList(data);
         }
         fetchNews();
-    }, []);
+    }, [params]);
 
     return (
         <div className="cards-container">
             {
                 !newsList ?
 
-                () => {
-                    return (<><Card /><Card /></>)
-                } :
+                    (<>
+                        <h3>Nessun risultato trovato</h3>
+                        <Card key={0} cardInfo={{title: 'Nessun titolo trovato', description: 'Nessuna descrizione trovata'}} />
+                    </>)
+                :
 
                 newsList.slice().map((item, index) => {
+                    item.key = index;
                     return <Card key={index} cardInfo={item} />
                 })
             }
