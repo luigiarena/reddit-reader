@@ -9,11 +9,35 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 function Card({ cardInfo }) {
     const { darkMode } = useContext(ThemeContext);
+    const dispatch = useDispatch();
+
     const { title, author, content, description, publishedAt, urlToImage, url, source} = cardInfo;
-    const sourceName = cardInfo.source.name;
+
+    const sourceName = (cardInfo.source) ? cardInfo.source.name : 'Unknown';
     const formattedDate = new Date(publishedAt).toLocaleDateString();
 
+    function handleCardClick(e) {
+        dispatch(setSelectedCard(cardInfo));
+    }
+
     return (
+        <Link to={`/news/${cardInfo.title}`} onClick={handleCardClick}>            
+            <div className={(darkMode ? "dark" : "") + " card"}>
+                <div className="card-header">
+                    <h2>{title}</h2>
+                </div>
+                <div className="card-body">
+                    <div className="card-img"><img src={urlToImage} alt="" /></div>
+                    <p>{description}</p>
+                </div>   
+                <div className="card-footer">
+                    <span>Source: {sourceName}</span>
+                    <span>Date: {formattedDate}</span>
+                </div>
+            </div>
+        </Link>
+    )
+}
 
 function CardDetails() {
     const { darkMode } = useContext(ThemeContext);
