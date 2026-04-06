@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import categoryReducer from "./features/slices/categorySlice";
+import searchReducer from "./features/slices/searchSlice";
 import cardsReducer from "./features/slices/cardsSlice";
 
 const store = configureStore({
     reducer: {
-        category: categoryReducer,
+        search: searchReducer,
         cards: cardsReducer
     }
 })
