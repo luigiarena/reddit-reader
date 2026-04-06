@@ -25,7 +25,6 @@ function Sidebar() {
     let cat = useSelector(
         (state) => state.search.category
     );
-    );
 
     return (
         <div className={"sidebar" + (darkMode ? " dark" : "")}>
