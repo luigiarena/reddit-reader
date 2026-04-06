@@ -4,7 +4,7 @@ header.header-container {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    background: #fff;
+    background: #fff8;
     padding: 6px 7%;
     transition: background 0.3s;
     position: sticky;
@@ -12,12 +12,13 @@ header.header-container {
     z-index: 10;
     box-shadow: 0 2px 8px #848181bf;
     color: black;
+    backdrop-filter: blur(20px);
 }
 
 header.header-container.dark {
-    background: #000;
+    background: #0008;
     color: #fff;
-    box-shadow: 0 2px 8px #363839d1;
+    box-shadow: 0 1px 2px #323232;
 }
 
 header .logo {
